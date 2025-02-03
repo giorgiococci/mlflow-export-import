@@ -12,3 +12,12 @@ build/
 
 config.source.json
 config.target.json
+
+.ipynb_aml_checkpoints/ 
+*.amltmp 
+*.amltemp
+
+output
+output2
+
+.env
