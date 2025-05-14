@@ -102,9 +102,13 @@ def import_run(
         )
         
         inputs = src_run_dct.get("inputs")
+        
         if inputs:
             for input in inputs:
-                mlflow.log_input(datasets=input)
+                if isinstance(input, dict):  
+                    continue  # Skip this run
+                    
+                mlflow.log_input(input)
         
         #_import_inputs(http_client, src_run_dct, run_id)
 

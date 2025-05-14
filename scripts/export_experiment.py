@@ -1,5 +1,9 @@
 import os
 from dotenv import load_dotenv
+import sys
+#change this with your folder path
+MLFLOW_EXPORT_IMPORT_PATH= "/mnt/batch/tasks/shared/LS_root/mounts/clusters/vmprdwe0-2nw4m6/code/Users/caivano.luca/mlflow-export-import"
+sys.path.insert(0, MLFLOW_EXPORT_IMPORT_PATH)
 from mlflow_export_import.client import client_utils
 from mlflow_export_import.common import mlflow_utils
 from mlflow_export_import.experiment.export_experiment import export_experiment
@@ -10,8 +14,8 @@ mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI_EXPORT")
 
 print(mlflow_tracking_uri)
 
-experiment_id_or_name="register_model_with_component"
-output_dir="output"
+experiment_id_or_name = "heart-condition-classifier"
+output_dir = "output"
 
 mlflow_client = client_utils.create_mlflow_client_from_tracking_uri(mlflow_tracking_uri)
 experiment = mlflow_utils.get_experiment(mlflow_client, experiment_id_or_name)
